@@ -1,0 +1,28 @@
+﻿@model MVC.ViewModels.forum
+@{
+    ViewBag.Title = "Forum";
+}
+
+<h2>Forum</h2>
+@using (Html.BeginForm("Forum", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.TextBoxFor(model => model.Search)
+                @Html.ValidationMessageFor(model => model.Search, "", new { })
+                <input type="submit" value="搜尋" class="btn btn-success btn-sm">
+                <button type="button" class="btn btn-link">
+                    @Html.ActionLink("SoftwareEnginering", "SoftwareEnginering", "Forum")
+                </button>
+                <button type="button" class="btn btn-link">
+                    @Html.ActionLink("OperatingSystem", "OperatingSystem", "Forum")
+                </button>
+            </td>
+        </tr>
+    </table>
+}
+
+
+
+

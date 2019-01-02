@@ -1,0 +1,78 @@
+﻿@model MVC.ViewModels.User
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>台科交流網</h1>
+    <p class="lead">台科大的師生都愛使用的社群網，大家在這裡可以分享自己的心情，或是對課程的問題都能在各科的主題版上提出發問，等待各路高人指點迷津。還沒註冊帳號的你，趕緊註冊一個吧!</p>
+</div>
+<style>
+    .section    {
+        margin-left: 170px;
+        width:550px
+    }
+    .form-group{
+        height:50px
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-4 login">
+        <h2>使用者登入</h2>
+        <p>
+    @using (Html.BeginForm("UserPage", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Use a local account to log in.</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Account, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Account, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                        @Html.ActionLink("Register as a new user", "Register","Account")
+                    </div>
+                </div>
+    }
+
+        </p>
+    </div>
+    <div class="col-md-6">
+        <div class="section">
+            <h2>推薦貼文</h2>
+            <div class="user6">
+                <img class="align-self-start mr-3" src="~/Pic/user6.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">Mandy</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="user3">
+                <img class="align-self-start mr-3" src="~/Pic/user3.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">Tom</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
