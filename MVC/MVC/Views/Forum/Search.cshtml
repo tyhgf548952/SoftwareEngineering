@@ -15,7 +15,7 @@
     }
 </style>
 <h2>Forum</h2>
-@*@using (Html.BeginForm("Search", "Forum", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Search", "Forum", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <table>
         <tr>
@@ -33,7 +33,7 @@
             </td>
         </tr>
     </table>
-}*@
+}
 <div class="container">
     <h1></h1>
     <div class="row">
@@ -53,18 +53,18 @@
     </div>
 </div>
 
-@*<div class="comment">
+<div class="comment">
     @using (Html.BeginForm("Post", "Forum", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
         <table>
             <tr>
                 <td>
-                    @Html.TextAreaFor(model => model.Post.Comments, new { @class = "form -control" })
-                    @Html.ValidationMessageFor(model => model.Post.Comments, "", new { })
+                    @Html.TextAreaFor(model => model.Post, new { @class = "form -control" })
+                    @Html.ValidationMessageFor(model => model.Post, "", new { })
                     <input type="submit" value="留言" class="btn btn-success btn-sm">
                 </td>
             </tr>
         </table>
     }
-</div>*@
+</div>

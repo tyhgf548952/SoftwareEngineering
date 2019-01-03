@@ -55,7 +55,6 @@
     }
 
     .service {
-        position: absolute;
         left: 0px;
         width: 300px;
     }
@@ -65,22 +64,23 @@
     }
 
     .section_author {
-        margin-left: 370px;
-        width: 80px;
-        height: 100px;
-        float:left;
+        margin-left: 50px;
+        width: 200px;
+        height: 120px;
     }
 
     .section_title {
-        margin-top:50px;
-        margin-left: 480px;
+        margin-top:10px;
+        margin-left: 180px;
         height: 22px;
         width: 200px;
         overflow:hidden;
     }
 
     .advertise {
-        margin-right: 0px;
+        position:absolute;
+        right:0px;
+        top: 50px;
     }
 
     .manage {
@@ -114,8 +114,11 @@
         height: 100px;
         width: 100px;
     }
-</style>
 
+    .add_friend{
+
+    }
+</style>
 <div class="container">
     <h1></h1>
     <div class="row">
@@ -153,12 +156,7 @@
 
             <div class="friend pre-scrollable" style="overflow-x:hidden;overflow-y:auto" id="friend">
                 <h4>Friend</h4>
-                <div class="user6 user">
-                    <img class="align-self-start mr-3" src="~/Pic/user6.jpg" alt="Generic placeholder image">
-                    <div class="media-body">
-                        <h5 class="mt-0 text-success">Mandy</h5>
-                    </div>
-                </div>
+                
                 <div class="user3 user">
                     <img class="align-self-start mr-3" src="~/Pic/user3.jpg" alt="Generic placeholder image">
                     <div class="media-body">
@@ -212,11 +210,16 @@
         <div class="col-lg-8">
             <div class="user6 section">
                 <div class="media-body section_author">
+                    <div class="add_friend">
+                        <p>
+                            @Html.ActionLink("Add friend", "UserPage_1", "User")
+                        </p>
+                    </div>
                     <img class="align-self-start mr-3" src="~/Pic/user6.jpg" alt="Generic placeholder image">
                     <h5 class="mt-0 text-success">Mandy</h5>
                 </div>
                 <div class="section_title">
-                    @Html.ActionLink("今天好熱喔今天好熱喔今天好熱喔今天好熱喔", "SoftwareEnginering", "Forum")
+                    @Html.ActionLink("今天好熱喔軟工怎麼辦", "SoftwareEnginering", "Forum")
                 </div>
             </div>
             <div class="user9 section">
@@ -224,27 +227,27 @@
                     <img class="align-self-start mr-3" src="~/Pic/user9.jpg" alt="Generic placeholder image">
                     <h5 class="mt-0 text-success">Jimmy</h5>
                 </div>
-                <p class="section_title">今天好熱喔</p>
+                <p class="section_title">@Html.ActionLink("有誰會寫xv6的可以教一下ㄇ", "OperatingSystem", "Forum")</p>
             </div>
             <div class="user8 section">
                 <div class="media-body section_author">
                     <img class="align-self-start mr-3" src="~/Pic/user8.jpg" alt="Generic placeholder image">
-                    <h5 class="mt-0 text-success">333333333333333333333333333333</h5>
+                    <h5 class="mt-0 text-success">Belinda</h5>
                 </div>
-                <p class="section_title">今天好熱喔</p>
+                <p class="section_title">@Html.ActionLink("有誰會寫xv6的可以教一下ㄇ", "OperatingSystem", "Forum")</p>
             </div>
             <div class="user2 section">
                 <div class="media-body section_author">
                     <img class="align-self-start mr-3" src="~/Pic/user2.jpg" alt="Generic placeholder image">
-                    <h5 class="mt-0 text-success">4</h5>
+                    <h5 class="mt-0 text-success">Amy</h5>
                 </div>
-                <p class="section_title">今天好熱喔</p>
+                <p class="section_title">@Html.ActionLink("今天好熱喔軟工怎麼辦", "SoftwareEnginering", "Forum")</p>
                 <div class="user4 section">
                     <div class="media-body section_author">
                         <img class="align-self-start mr-3" src="~/Pic/user4.jpg" alt="Generic placeholder image">
-                        <h5 class="mt-0 text-success">asdada</h5>
+                        <h5 class="mt-0 text-success">David</h5>
                     </div>
-                    <p class="section_title">今天好熱喔</p>
+                    <p class="section_title">@Html.ActionLink("今天好熱喔軟工怎麼辦", "SoftwareEnginering", "Forum")</p>
                 </div>
             </div>
         </div>

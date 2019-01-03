@@ -283,6 +283,7 @@
     <Content Include="Views\User\UserPage.cshtml" />
     <Content Include="Views\Forum\Post.cshtml" />
     <Content Include="Views\Forum\Search.cshtml" />
+    <Content Include="Views\User\UserPage_1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,22 +3,16 @@
     ViewBag.Title = "UserPage";
 }
 
-<h2>Forum</h2>
-@using (Html.BeginForm("Search", "Forum", FormMethod.Post, new { enctype = "multipart/form-data" }))
+<h2>UserPage</h2>
+@using (Html.BeginForm("UserPage", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <table>
         <tr>
             <td>
-                @Html.TextBoxFor(model => model.forum.Search)
-                @Html.ValidationMessageFor(model => model.forum.Search, "", new { })
+                @Html.TextBoxFor(model => model.User.Search)
+                @Html.ValidationMessageFor(model => model.User.Search, "", new { })
                 <input type="submit" value="搜尋" class="btn btn-success btn-sm">
-                @*<button type="button" class="btn btn-link">
-                    @Html.ActionLink("SoftwareEnginering", "SoftwareEnginering", "Forum")
-                </button>
-                <button type="button" class="btn btn-link">
-                    @Html.ActionLink("OperatingSystem", "OperatingSystem", "Forum")
-                </button>*@
             </td>
         </tr>
     </table>
@@ -61,7 +55,6 @@
     }
 
     .service {
-        position: absolute;
         left: 0px;
         width: 300px;
     }
@@ -70,16 +63,24 @@
         width: 300px;
     }
 
-    .section_title {
-        margin-left: 370px;
-        width: 250px;
+    .section_author {
+        margin-left: 50px;
+        width: 80px;
         height: 100px;
-        overflow: hidden;
-        float: left;
+    }
+
+    .section_title {
+        margin-top:10px;
+        margin-left: 180px;
+        height: 22px;
+        width: 200px;
+        overflow:hidden;
     }
 
     .advertise {
-        margin-right: 0px;
+        position:absolute;
+        right:0px;
+        top: 50px;
     }
 
     .manage {
@@ -119,6 +120,37 @@
     <h1></h1>
     <div class="row">
         <div class="col-lg-4 service">
+
+            <div class="post">
+                <h4>Post</h4>
+
+                @using (Html.BeginForm("UserPage", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                @Html.AntiForgeryToken()
+                <table>
+                    <tr>
+                        <td class="title">
+                            Title
+                            @Html.TextBoxFor(model => model.Post.Title, new { @class = "form -control" })
+                            @Html.ValidationMessageFor(model => model.Post.Title, "", new { })
+                        </td>
+                        <td class="content">
+                            @Html.TextAreaFor(model => model.Post.Content, new { @class = "form -control" })
+                            @Html.ValidationMessageFor(model => model.Post.Content, "", new { })
+                            <input type="submit" value="發文" class="btn btn-success btn-sm">
+                        </td>
+                    </tr>
+                </table>
+                    }
+            </div>
+
+            @*<div class="manage">
+                <h4>Manage</h4>
+                <button type="button" class="btn btn-link">
+                    @Html.ActionLink("SoftwareEnginering", "SoftwareEnginering", "Forum")
+                </button>
+            </div>*@
+
             <div class="friend pre-scrollable" style="overflow-x:hidden;overflow-y:auto" id="friend">
                 <h4>Friend</h4>
                 <div class="user6 user">
@@ -178,15 +210,42 @@
             </div>
         </div>
         <div class="col-lg-8">
-            <div class="section">
+            <div class="user6 section">
+                <div class="media-body section_author">
+                    <img class="align-self-start mr-3" src="~/Pic/user6.jpg" alt="Generic placeholder image">
+                    <h5 class="mt-0 text-success">Mandy</h5>
+                </div>
                 <div class="section_title">
                     @Html.ActionLink("今天好熱喔軟工怎麼辦", "SoftwareEnginering", "Forum")
                 </div>
             </div>
-            <div class="section">
-                <div class="section_title">
-                @Html.ActionLink("有誰會寫xv6的可以教一下ㄇ", "OperatingSystem", "Forum")
+            <div class="user9 section">
+                <div class="media-body section_author">
+                    <img class="align-self-start mr-3" src="~/Pic/user9.jpg" alt="Generic placeholder image">
+                    <h5 class="mt-0 text-success">Jimmy</h5>
+                </div>
+                <p class="section_title">@Html.ActionLink("今天好熱喔軟工怎麼辦", "SoftwareEnginering", "Forum")</p>
             </div>
+            <div class="user8 section">
+                <div class="media-body section_author">
+                    <img class="align-self-start mr-3" src="~/Pic/user8.jpg" alt="Generic placeholder image">
+                    <h5 class="mt-0 text-success">Belinda</h5>
+                </div>
+                <p class="section_title">@Html.ActionLink("有誰會寫xv6的可以教一下ㄇ", "OperatingSystem", "Forum")</p>
+            </div>
+            <div class="user2 section">
+                <div class="media-body section_author">
+                    <img class="align-self-start mr-3" src="~/Pic/user2.jpg" alt="Generic placeholder image">
+                    <h5 class="mt-0 text-success">Amy</h5>
+                </div>
+                <p class="section_title">@Html.ActionLink("有誰會寫xv6的可以教一下ㄇ", "OperatingSystem", "Forum")</p>
+                <div class="user4 section">
+                    <div class="media-body section_author">
+                        <img class="align-self-start mr-3" src="~/Pic/user4.jpg" alt="Generic placeholder image">
+                        <h5 class="mt-0 text-success">David</h5>
+                    </div>
+                    <p class="section_title">@Html.ActionLink("今天好熱喔軟工怎麼辦", "SoftwareEnginering", "Forum")</p>
+                </div>
             </div>
         </div>
         <div class="col-lg-3 advertise">
