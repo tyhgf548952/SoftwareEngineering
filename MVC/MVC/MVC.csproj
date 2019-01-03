@@ -209,6 +209,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\forum.cs" />
+    <Compile Include="ViewModels\MyView.cs" />
+    <Compile Include="ViewModels\Post.cs" />
     <Compile Include="ViewModels\User.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +277,8 @@
     <Content Include="Views\Forum\SoftwareEnginering.cshtml" />
     <Content Include="Views\Forum\OperatingSystem.cshtml" />
     <Content Include="Views\User\UserPage.cshtml" />
+    <Content Include="Views\Forum\Post.cshtml" />
+    <Content Include="Views\Forum\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

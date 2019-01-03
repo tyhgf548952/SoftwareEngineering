@@ -14,28 +14,9 @@ namespace MVC.Controllers
             return View();
         }
 
-        public ActionResult Login()
-        {
-            User model = new User();
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Login(User model)
-        {
-            return View(model);
-        }
-
         public ActionResult Forum()
         {
-            forum model = new forum();
-            return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult Forum(forum model)
-        {
-            return View(model);
+            return View();
         }
 
         public ActionResult About()

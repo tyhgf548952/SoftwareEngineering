@@ -11,12 +11,13 @@ namespace MVC.Controllers
     {
         public ActionResult UserPage()
         {
-            User model = new User();
+            MyView model = new MyView();
             return View();
         }
 
         [HttpPost]
-        public ActionResult UserPage(User model)
+        [ValidateAntiForgeryToken]
+        public ActionResult UserPage(MyView model)
         {
             return View(model);
         }

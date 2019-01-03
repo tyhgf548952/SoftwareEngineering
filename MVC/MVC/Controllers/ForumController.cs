@@ -17,5 +17,26 @@ namespace MVC.Controllers
         {
             return View();
         }
+        public ActionResult Post()
+        {
+            MyView model = new MyView();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Post(MyView model)
+        {
+            return View(model);
+        }
+
+        public ActionResult Search()
+        {
+            MyView model = new MyView();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Search(MyView model)
+        {
+            return View(model);
+        }
     }
 }

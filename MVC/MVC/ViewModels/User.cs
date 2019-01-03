@@ -11,12 +11,14 @@ namespace MVC.ViewModels
     {
         public string Search { get; set; }
 
-        public string Post { get; set; }
-
         [DisplayName("帳號")]
+        [Required]
         public string Account { get; set; }
 
         [DisplayName("密碼")]
+        [Required]
         public string Password { get; set; }
+
+        public List<string> friend { get; set; } 
     }
 }

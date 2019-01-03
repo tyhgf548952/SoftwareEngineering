@@ -1,0 +1,139 @@
+﻿@model MVC.ViewModels.MyView
+@{
+    ViewBag.Title = "Forum";
+}
+
+<style>
+    body {
+        margin-bottom: 120px;
+    }
+    textarea {
+        width: 500px;
+        height: 100px;
+        resize: none;
+        margin: 5px;
+    }
+</style>
+<h2>Forum</h2>
+@using (Html.BeginForm("Search", "Forum", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.TextBoxFor(model => model.forum.Search)
+                @Html.ValidationMessageFor(model => model.forum.Search, "", new { })
+                <input type="submit" value="搜尋" class="btn btn-success btn-sm">
+                if(a)
+                <button type="button" class="btn btn-link">
+                    @Html.ActionLink("SoftwareEnginering", "SoftwareEnginering", "Forum")
+                </button>
+                <button type="button" class="btn btn-link">
+                    @Html.ActionLink("OperatingSystem", "OperatingSystem", "Forum")
+                </button>
+            </td>
+        </tr>
+    </table>
+}
+<div class="container">
+    <h1>OperatingSystem</h1>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="user6">
+                <img class="align-self-start mr-3" src="~/Pic/user6.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">Mandy</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+            <div class="user3">
+                <img class="align-self-start mr-3" src="~/Pic/user3.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">Tom</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+            <div class="user9">
+                <img class="align-self-start mr-3" src="~/Pic/user9.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">Jimmy</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+            <div class="user1">
+                <img class="align-self-start mr-3" src="~/Pic/user1.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">Tim</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+            <div class="user4">
+                <img class="align-self-start mr-3" src="~/Pic/user4.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">David</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+            <div class="user8">
+                <img class="align-self-start mr-3" src="~/Pic/user8.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">Belinda</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+            <div class="user5">
+                <img class="align-self-start mr-3" src="~/Pic/user5.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">Cammy</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+            <div class="user2">
+                <img class="align-self-start mr-3" src="~/Pic/user2.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">Amy</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+            <div class="user7">
+                <img class="align-self-start mr-3" src="~/Pic/user7.jpg" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 text-success">Henry</h5>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="ad1">
+                <img class="img-thumbnail" src="~/Pic/test1.jpg">
+            </div>
+            <div class="ad2">
+                <img class="img-thumbnail" src="~/Pic/test2.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="comment">
+    @using (Html.BeginForm("Post", "Forum", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <table>
+            <tr>
+                <td>
+                    @Html.TextAreaFor(model => model.Post.Comments, new { @class = "form -control" })
+                    @Html.ValidationMessageFor(model => model.Post.Comments, "", new { })
+                    <input type="submit" value="留言" class="btn btn-success btn-sm">
+                </td>
+            </tr>
+        </table>
+    }
+</div>
