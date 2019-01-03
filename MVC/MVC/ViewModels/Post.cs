@@ -10,7 +10,6 @@ namespace MVC.ViewModels
     public class Post
     {
         public string Author { get; set; }
-
         [Required]
         public string Title { get; set; }
 
@@ -18,6 +17,6 @@ namespace MVC.ViewModels
         public string Content { get; set; }
         public string Time { get; set; }
 
-        public string Comments { get; set; }
+        public List<string> Comments { get; set; }
     }
 }

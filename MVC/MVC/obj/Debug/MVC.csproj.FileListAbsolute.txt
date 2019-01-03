@@ -80,3 +80,4 @@ F:\MVC\MVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\MVC\MVC\obj\Debug\MVC.csprojResolveAssemblyReference.cache
 F:\MVC\MVC\obj\Debug\MVC.dll
 F:\MVC\MVC\obj\Debug\MVC.pdb
+F:\MVC\MVC\bin\MySql.Data.dll

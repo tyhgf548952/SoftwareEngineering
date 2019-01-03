@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC.ViewModels;
+using WebApplication1.Models;
 
 namespace MVC.Controllers
 {
@@ -34,8 +35,10 @@ namespace MVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Search(MyView model)
-        {
+        public ActionResult Search(MyView model,Model m)
+        { 
+            Board board = m.searchBoard(model.forum.forum_name);
+            model.forum.forum_name = board.Name;
             return View(model);
         }
     }

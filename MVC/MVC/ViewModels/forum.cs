@@ -11,5 +11,8 @@ namespace MVC.ViewModels
     {
         [Required]
         public string Search { get; set; }
+
+        public string forum_name { get; set; }
+        public List<Post> Post { get; set; }
     }
 }

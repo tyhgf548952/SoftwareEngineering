@@ -18,6 +18,11 @@ namespace MVC
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "fourm_Search",
+                url: "{controller}/{action}/{board_name}",
+                defaults: new { controller = "Home", action = "Forum"}
+            );
         }
     }
 }

@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC.ViewModels;
+using WebApplication1.Models;
 
 namespace MVC.Controllers
 {
     public class HomeController : Controller
     {
+        Model m;
         public ActionResult Index()
         {
             return View();

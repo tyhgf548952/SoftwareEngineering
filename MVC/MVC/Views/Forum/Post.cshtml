@@ -23,7 +23,6 @@
                 @Html.TextBoxFor(model => model.forum.Search)
                 @Html.ValidationMessageFor(model => model.forum.Search, "", new { })
                 <input type="submit" value="搜尋" class="btn btn-success btn-sm">
-                if(a)
                 <button type="button" class="btn btn-link">
                     @Html.ActionLink("SoftwareEnginering", "SoftwareEnginering", "Forum")
                 </button>
@@ -121,6 +120,8 @@
         </div>
     </div>
 </div>
+
+
 
 <div class="comment">
     @using (Html.BeginForm("Post", "Forum", FormMethod.Post, new { enctype = "multipart/form-data" }))
