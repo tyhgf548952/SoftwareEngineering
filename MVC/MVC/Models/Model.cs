@@ -2,14 +2,15 @@
 using MySql.Data.MySqlClient;
 using System;
 
-namespace WebApplication1.Models
+namespace MVC.Models
 {
     public class Model
     {
         DAO database;
         static int articleNumber;
         public UserInfo PresentUser;
-        public Model() {
+        public Model()
+        {
             database = new MySqlData();
             articleNumber = getArticleNumber();
         }
@@ -30,7 +31,7 @@ namespace WebApplication1.Models
         {
             database.AddUser(newUser);
             newUser.myBoard.Add(newUser.Name);
-            this.addBoard(new Board(newUser.Name,newUser.Name));
+            this.addBoard(new Board(newUser.Name, newUser.Name));
         }
 
         //看板管理
@@ -44,7 +45,7 @@ namespace WebApplication1.Models
         }
         public void deleteBoard(ref Board board)
         {
-            database.deleteBoard(board);            
+            database.deleteBoard(board);
         }
         public void setBoardManager(ref Board board, string userName)
         {
@@ -78,7 +79,7 @@ namespace WebApplication1.Models
         }
         public void confirmFriend(ref UserInfo confirmer, string friendName)
         {
-            confirmer.friendApply.RemoveAll(item=>item==friendName);
+            confirmer.friendApply.RemoveAll(item => item == friendName);
             confirmer.myFriend.Add(friendName);
             database.confirmFriend(confirmer, friendName);
         }
@@ -88,7 +89,7 @@ namespace WebApplication1.Models
             return count + getArticleNumber();
         }
 
-       
+
     }
     public class Article
     {
@@ -98,17 +99,17 @@ namespace WebApplication1.Models
         public string time;
         public int likes;
         public List<string> comments;
-        public Article(int t, string c,string name)
+        public Article(int t, string c, string name)
         {
             author = name;
-            title=t;content=c;
-            time= DateTime.Now.ToString(("yyyy-MM-dd-hh:mm:ss"));
+            title = t; content = c;
+            time = DateTime.Now.ToString(("yyyy-MM-dd-hh:mm:ss"));
             likes = 0;
             comments = new List<string>();
             //存到database
         }
         public Article() { }
-       
+
     }
     public class Board
     {
@@ -134,7 +135,7 @@ namespace WebApplication1.Models
         public List<string> friendApply;
         public UserInfo(string name, string password)
         {
-            Name = name;   Password = password;
+            Name = name; Password = password;
             coin = 0;
             isManager = false;
             myBoard = new List<string>();
@@ -177,33 +178,33 @@ namespace WebApplication1.Models
         abstract public int getArticleNumber();
         abstract public void updateArticleNum(int count);
     }
-   /* public class H2Data : DAO
-    {
-        override public int getArticleNumber() { return new int(); }
-        override public List<string> getUserFriend(string name) { return new List<string>(); }
-        override public List<string> getUserBoard(string name) { return new List<string>(); }
-        override public List<string> getUserApplicant(string name) { return new List<string>(); }
-        override public List<string> getArticleComment(int title) { return new List<string>(); }
-        override public List<Article> getBoardArticle(string name) { return new List<Article>(); }
-        override public List<UserInfo> searchAllUsers() { return new List<UserInfo>(); }
-        override public UserInfo searchUser(string name)
-        {
-            return new UserInfo();
-        }
-        override public void  AddUser(UserInfo user) { }
-        override public Board searchBoard(string name)
-        {
-            return new Board();
-        }
-        override public void applyFriend(UserInfo applicant, string friendName) { }
-        override public void confirmFriend(UserInfo confirmer, string friendName) { }
-        override public void addBoard(Board newBoard) { }
-        override public void deleteBoard(Board board) { }
-        override public void addArticle(Board board, Article article) { }
-        override public void addComment(Board board, Article article, string comment) { }
-        override public void newlikes(Board board, Article article) { }
-        override public void setBoardManager(Board board, string userName) { }
-    }*/
+    /* public class H2Data : DAO
+     {
+         override public int getArticleNumber() { return new int(); }
+         override public List<string> getUserFriend(string name) { return new List<string>(); }
+         override public List<string> getUserBoard(string name) { return new List<string>(); }
+         override public List<string> getUserApplicant(string name) { return new List<string>(); }
+         override public List<string> getArticleComment(int title) { return new List<string>(); }
+         override public List<Article> getBoardArticle(string name) { return new List<Article>(); }
+         override public List<UserInfo> searchAllUsers() { return new List<UserInfo>(); }
+         override public UserInfo searchUser(string name)
+         {
+             return new UserInfo();
+         }
+         override public void  AddUser(UserInfo user) { }
+         override public Board searchBoard(string name)
+         {
+             return new Board();
+         }
+         override public void applyFriend(UserInfo applicant, string friendName) { }
+         override public void confirmFriend(UserInfo confirmer, string friendName) { }
+         override public void addBoard(Board newBoard) { }
+         override public void deleteBoard(Board board) { }
+         override public void addArticle(Board board, Article article) { }
+         override public void addComment(Board board, Article article, string comment) { }
+         override public void newlikes(Board board, Article article) { }
+         override public void setBoardManager(Board board, string userName) { }
+     }*/
     public class MySqlData : DAO
     {
         /*string dbHost = "";//資料庫位址
@@ -216,6 +217,7 @@ namespace WebApplication1.Models
         public MySqlData()
         {
             string connStr = "Database = mydb; Data Source = 192.168.100.11; User Id = root; PassWord ='abc1234567';Charset=utf8;port=3306";
+
             Connection = new MySqlConnection(connStr);
             command = Connection.CreateCommand();
             Connection.Open();
@@ -284,22 +286,22 @@ namespace WebApplication1.Models
         {
             List<Article> Return = new List<Article>();
             Article tmp = new Article();
-            command.CommandText = "select * from "+name+"Article";
+            command.CommandText = "select * from " + name + "Article";
             reader = command.ExecuteReader();
             int title = 0;
             List<string> temp = new List<string>();
             for (int i = 0; i < 4; i++)
             {
-                if(!reader.Read()) break;
+                if (!reader.Read()) break;
                 if (i == 0) title = reader.GetInt32(0);
                 else
-                temp.Add(reader.GetString(i));
+                    temp.Add(reader.GetString(i));
             }
             while (reader.Read())
             {
                 tmp = new Article(title, temp[0], temp[1]);
                 tmp.time = temp[2];
-                if(!reader.Read()) break;
+                if (!reader.Read()) break;
                 tmp.likes = reader.GetInt32(3);
                 tmp.comments = getArticleComment(tmp.title);
                 Return.Add(tmp);
@@ -309,17 +311,17 @@ namespace WebApplication1.Models
         }
         override public List<UserInfo> searchAllUsers()
         {
-            List<UserInfo> returnValue=new List<UserInfo>();
+            List<UserInfo> returnValue = new List<UserInfo>();
             UserInfo tmp = new UserInfo();
             command.CommandText = "select * from userinfo";
-            reader= command.ExecuteReader();
+            reader = command.ExecuteReader();
             bool end = false;
             while (true)
             {
                 List<string> temp = new List<string>();
                 for (int i = 0; i < 2; i++)
                 {
-                    if (!reader.Read()) { end = true;break; }
+                    if (!reader.Read()) { end = true; break; }
                     temp.Add(reader.GetString(i));
                 }
                 if (end) break;
@@ -341,8 +343,8 @@ namespace WebApplication1.Models
         }
         override public UserInfo searchUser(string name)
         {
-            UserInfo returnValue=new UserInfo();
-            command.CommandText= "select * from userinfo where username = '"+name+"'";
+            UserInfo returnValue = new UserInfo();
+            command.CommandText = "select * from userinfo where username = '" + name + "'";
             List<string> tmp = new List<string>();
             reader = command.ExecuteReader(); //execure the reader
             for (int i = 0; i < 2; i++)
@@ -357,7 +359,7 @@ namespace WebApplication1.Models
                 }
 
             }
-            returnValue=new UserInfo(tmp[0], tmp[1]);
+            returnValue = new UserInfo(tmp[0], tmp[1]);
             reader.Read();
             returnValue.coin = reader.GetInt32(2);
             reader.Read();
@@ -370,7 +372,7 @@ namespace WebApplication1.Models
         }
         override public void AddUser(UserInfo user)
         {
-           
+
             command.CommandText = "Select * from userinfo where username='" + user.Name + "'";
             reader = command.ExecuteReader();
             if (reader.Read())
@@ -379,15 +381,15 @@ namespace WebApplication1.Models
                 return;
             }
             reader.Close();
-            command.CommandText= "Insert into userinfo(username,userpassword,coin,isManager) values('" + user.Name +  "','"+user.Password+"',"+user.coin+","+user.isManager + ")";
+            command.CommandText = "Insert into userinfo(username,userpassword,coin,isManager) values('" + user.Name + "','" + user.Password + "'," + user.coin + "," + user.isManager + ")";
             command.ExecuteNonQuery();
             command.CommandText = "Create table if not exists " + user.Name + "Friend(friendname longtext)";
             command.ExecuteNonQuery();
-            command.CommandText= "Create table if not exists " + user.Name + "Board(board longtext)";
+            command.CommandText = "Create table if not exists " + user.Name + "Board(board longtext)";
             command.ExecuteNonQuery();
-            command.CommandText = "Insert into '" + user.Name + "Board values ('" + user.Name + "')";
+            command.CommandText = "Insert into " + user.Name + "Board(board) values ('" + user.Name + "')";
             command.ExecuteNonQuery();
-            command.CommandText= "Create table if not exists " + user.Name + "Applicant(applicant longtext)";
+            command.CommandText = "Create table if not exists " + user.Name + "Applicant(applicant longtext)";
             command.ExecuteNonQuery();
         }
         override public Board searchBoard(string name)
@@ -413,7 +415,7 @@ namespace WebApplication1.Models
 
             command.CommandText = "Insert into " + confirmer.Name + "Friend(friendname) values ('" + friendName + "')";
             command.ExecuteNonQuery();
-            command.CommandText="Insert into "+ friendName + "Friend(friendname) values ('" + confirmer.Name + "')";
+            command.CommandText = "Insert into " + friendName + "Friend(friendname) values ('" + confirmer.Name + "')";
             command.ExecuteNonQuery();
             command.CommandText = "Delete from " + confirmer.Name + "Applicant where applicant='" + friendName + "'";
             command.ExecuteNonQuery();
@@ -437,7 +439,7 @@ namespace WebApplication1.Models
         {
             command.CommandText = "Delete FROM Board WHERE name='" + board.Name + "'";
             command.ExecuteNonQuery();
-            command.CommandText= "Drop table " + board.Name+"Article";
+            command.CommandText = "Drop table " + board.Name + "Article";
             command.ExecuteNonQuery();
             this.updateArticleNum(-1 * board.article.Count);
             for (int i = 0; i < board.article.Count; i++)
@@ -480,11 +482,12 @@ namespace WebApplication1.Models
             reader = command.ExecuteReader();
             reader.Read();
             a = reader.GetInt32(0);
+            reader.Close();
             return a;
         }
         override public void updateArticleNum(int count)
         {
-            command.CommandText = "Update ArticleNum SET num="+count;
+            command.CommandText = "Update ArticleNum SET num=" + count;
         }
     }
 

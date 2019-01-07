@@ -78,7 +78,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data">
-      <HintPath>D:\Chrome Download\SoftwareEngineering-master\model\MySql.Data.dll</HintPath>
+      <HintPath>..\..\model\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -277,13 +277,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Forum.cshtml" />
-    <Content Include="Views\Forum\SoftwareEnginering.cshtml" />
-    <Content Include="Views\Forum\OperatingSystem.cshtml" />
     <Content Include="Views\User\UserPage.cshtml" />
+    <Content Include="Views\User\UserPage_1.cshtml" />
+    <Content Include="Views\Home\Forum.cshtml" />
+    <Content Include="Views\Forum\OperatingSystem.cshtml" />
     <Content Include="Views\Forum\Post.cshtml" />
     <Content Include="Views\Forum\Search.cshtml" />
-    <Content Include="Views\User\UserPage_1.cshtml" />
+    <Content Include="Views\Forum\SoftwareEnginering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
