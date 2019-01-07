@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Account";
+    var dt = ViewBag.DT;
+    var acc = ViewBag.account;
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@if (acc>0)
+{
+    <div>
+        <label>有重複未註冊</label>
+        
+    </div>
+}
+else
+{
+    <div>
+        <label>沒有重複已註冊</label>
+    </div>
+}
