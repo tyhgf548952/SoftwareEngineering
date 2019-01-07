@@ -1,17 +1,69 @@
 ﻿@{
     ViewBag.Title = "Contact";
+
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
+<div>
+    <img src="~/img/dog.jpg" class="rounded mx-auto d-block" alt="...">
+    <h1>個人資料</h1>
+    <h3>姓名:DOG</h3>
+    <h3>信箱:dog@mail.com</h3>
+    
+        <form>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+            <div class="form-group row" style="border-color:green;border-width:3px;border-style:dotted;">
+                <label for="staticEmail" class="col-sm-10 col-form-label">自我介紹:自我介紹用於和別人初次見面，或是對方不認識自己的情況下，向對方說明有關自己的事，例如名字、職業、興趣等，也會用在面試上，使你被取錄。有時我們會透過傳遞名片來自我介紹，使對方更容易瞭解你。    ...更多</label>
+            </div>
+        </form>
+    
+</div>
+        <style>
+            .leftnav {
+                height: 100%;
+                width: 300px;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #ffd800;
+                overflow-x: hidden;
+                padding-top: 20px;
+                text-align: center;
+            }
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+            .rightnav {
+                height: 100%;
+                width: 300px;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                right: 0;
+                background-color: #ffd800;
+                overflow-x: hidden;
+                padding-top: 20px;
+                text-align: center;
+                font-size: 50px;
+            }
+        </style>
+
+
+        <div class="leftnav">
+            <!-- header -->
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary pt-3 flex-column">
+                <br><br><br><br>
+                <div class="col-lg-pull-10 mb-2 bg-white text-dark" style="font-size:20px;color:black;" ;>貼文發布</div>
+
+                <div class="col-lg-pull-10 mb-2 bg-white text-dark" style="font-size:20px">設定管理</div>
+
+                <div class="col-lg-pull-5 mb-2 bg-white text-dark" style="font-size:20px">朋友欄</div>
+
+            </nav>
+
+            <!-- //header -->
+        </div>
+        <div class="rightnav">
+            <br><br><br><br>
+            <a>廣告</a>
+        </div>

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "About";
+    var dt = ViewBag.DT;
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+<div>
+    @for (int i = 0; i < dt.Rows.Count; i++)
+    {
+        @Html.Raw($"代號: {dt.Rows[i]["id"]}, 名稱: {dt.Rows[i]["friend"]}")
+        <br />
+    }
+</div>
